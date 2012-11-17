@@ -28,6 +28,9 @@ IP class:
     ip.isIncludedIn("192.168.0.0/16");
     // true
     
+    ip.isIncludedIn("192.168.0.0", "192.168.255.255");
+    // true
+
 long-representation can be treated as unsigned int.
 
 CIDR class:
