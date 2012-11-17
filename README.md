@@ -19,10 +19,10 @@ IP class:
     
     IP ip = new IP("192.168.1.1");
     
-    String ipAsString = ip.toString();
+    ip.toString();
     // "192.168.1.1"
     
-    long ipAsLong = ip.toLong();
+    ip.toLong();
     // 3232235777
     
     ip.isIncludedIn("192.168.0.0/16");
@@ -35,6 +35,7 @@ long-representation can be treated as unsigned int.
 
 CIDR class:
 
+    import ipx.IP;
     import ipx.CIDR;
     
     CIDR cidr = new CIDR("192.168.0.0/16");
