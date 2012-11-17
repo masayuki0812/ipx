@@ -45,6 +45,30 @@ public class Main {
                 System.out.println("## " + ip + " is NOT includes in " + cidr);
             }
 
+            IPRange range = new IPRange("192.168.0.0", "192.168.255.255");
+
+            ip = new IP("192.168.1.1");
+            if (range.includes(ip)) {
+                System.out.println("## " + range + " includes " + ip);
+            }
+            else {
+                System.out.println("## " + range + " NOT includes " + ip);
+            }
+            ip = new IP("10.0.1.1");
+            if (range.includes(ip)) {
+                System.out.println("## " + range + " includes " + ip);
+            }
+            else {
+                System.out.println("## " + range + " NOT includes " + ip);
+            }
+
+            if (ip.isIncludedIn("10.0.0.0", "10.0.255.255")) {
+                System.out.println("## " + ip + " is includes in " + cidr);
+            }
+            else {
+                System.out.println("## " + ip + " is NOT includes in " + cidr);
+            }
+
         }
         catch (Exception e) {
             e.printStackTrace();
