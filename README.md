@@ -13,53 +13,56 @@ Then, `.jar` will be generated in `./target`, and you can run this `.jar` with n
 
 ## Usage
 
-IP class:
+### IP class:
 
-    import ipx.IP;
-    
-    IP ip = new IP("192.168.1.1");
-    
-    ip.toString();
-    // "192.168.1.1"
-    
-    ip.toLong();
-    // 3232235777
-    
-    ip.isIncludedIn("192.168.0.0/16");
-    // true
-    
-    ip.isIncludedBetween("192.168.0.0", "192.168.255.255");
-    // true
+```java
+import ipx.IP;
 
+IP ip = new IP("192.168.1.1");
+
+ip.toString();
+// "192.168.1.1"
+
+ip.toLong();
+// 3232235777
+
+ip.isIncludedIn("192.168.0.0/16");
+// true
+
+ip.isIncludedBetween("192.168.0.0", "192.168.255.255");
+// true
+```
 long-representation can be treated as unsigned int.
 
-CIDR class:
+### CIDR class:
 
-    import ipx.IP;
-    import ipx.CIDR;
-    
-    CIDR cidr = new CIDR("192.168.0.0/16");
-    
-    IP start = cidr.getStart();
-    // "192.168.0.0
+```java
+import ipx.IP;
+import ipx.CIDR;
 
-    IP end = cidr.getEnd();
-    // "192.168.255.255"
-    
-    cidr.includes("192.168.1.1");
-    // true
-    
+CIDR cidr = new CIDR("192.168.0.0/16");
+
+IP start = cidr.getStart();
+// "192.168.0.0
+
+IP end = cidr.getEnd();
+// "192.168.255.255"
+
+cidr.includes("192.168.1.1");
+// true
+```
 And of course:
 
-    import ipx.IP;
-    import ipx.CIDR;
-    
-    IP ip = new IP("192.168.1.1");
-    CIDR cidr = new CIDR("192.168.0.0/16");
+```java
+import ipx.IP;
+import ipx.CIDR;
 
-    cidr.includes(ip);
-    // true
-    
-    ip.isIncludedIn(cidr);
-    // true
+IP ip = new IP("192.168.1.1");
+CIDR cidr = new CIDR("192.168.0.0/16");
 
+cidr.includes(ip);
+// true
+
+ip.isIncludedIn(cidr);
+// true
+```
