@@ -62,7 +62,7 @@ public class Main {
                 System.out.println("## " + range + " NOT includes " + ip);
             }
 
-            if (ip.isIncludedIn("10.0.0.0", "10.0.255.255")) {
+            if (ip.isIncludedBetween("10.0.0.0", "10.0.255.255")) {
                 System.out.println("## " + ip + " is includes in " + cidr);
             }
             else {

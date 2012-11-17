@@ -32,7 +32,7 @@ public class IP {
     public boolean isIncludedIn(IPRange range) {
         return range.includes(this);
     }
-    public boolean isIncludedIn(String start, String end) throws Exception {
+    public boolean isIncludedBetween(String start, String end) throws Exception {
         return isIncludedIn(new IPRange(start, end));
     }
 
