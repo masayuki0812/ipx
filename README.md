@@ -1,4 +1,4 @@
-Extended IP library for Java
+Extended IP implementation for Java
 ====
 
 ## Build
@@ -13,18 +13,49 @@ Then, `.jar` will be generated in `./target`, and you can run this `.jar` with n
 
 ## Usage
 
-You can convert CIDR to start/end IPs:
+IP class:
+
+    import ipx.IP;
+    
+    IP ip = new IP("192.168.1.1");
+    
+    String ipAsString = ip.toString();
+    // "192.168.1.1"
+    
+    long ipAsLong = ip.toLong();
+    // 3232235777
+    
+    ip.isIncludedIn("192.168.0.0/16");
+    // true
+    
+long-representation can be treated as unsigned int.
+
+CIDR class:
 
     import ipx.CIDR;
     
-    String[] ips = CIDR.convertToRange("192.168.0.0/24");
-    // ips[0] will be "192.168.0.0"
-    // ips[1] will be "192.168.255.255"
+    CIDR cidr = new CIDR("192.168.0.0/16");
+    
+    IP start = cidr.getStart();
+    // "192.168.0.0
 
-And also get number representation of IP:
+    IP end = cidr.getEnd();
+    // "192.168.255.255"
+    
+    cidr.includes("192.168.1.1");
+    // true
+    
+And of course:
 
     import ipx.IP;
+    import ipx.CIDR;
+    
+    IP ip = new IP("192.168.1.1");
+    CIDR cidr = new CIDR("192.168.0.0/16");
 
-    long addr = IP.toLong("192.168.1.1");
-    // addr will be -1062731519
+    cidr.includes(ip);
+    // true
+    
+    ip.isIncludedIn(cidr);
+    // true
 
