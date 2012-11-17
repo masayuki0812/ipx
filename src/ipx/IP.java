@@ -2,17 +2,47 @@ package ipx;
 
 public class IP {
 
-    public static long toLong(String addr) throws Exception {
+    private String addr;
+    private long nAddr;
+
+    public IP(String addr) throws Exception {
+        this.addr = addr;
+        this.nAddr = convertToLong(addr);
+    }
+    public IP(long nAddr) {
+        this.addr = convertToString(nAddr);
+        this.nAddr = nAddr;
+    }
+
+    public long toLong() {
+        return this.nAddr;
+    }
+
+    @Override
+    public String toString() {
+        return this.addr;
+    }
+
+    public boolean isIncludedIn(CIDR cidr) {
+        return cidr.includes(this);
+    }
+    public boolean isIncludedIn(String cidr) throws Exception {
+        return isIncludedIn(new CIDR(cidr));
+    }
+
+    /*-- static --*/
+
+    public static long convertToLong(String addr) throws Exception {
         String[] octs = addr.split("\\.");
 
         if( octs.length != 4 ){
             throw new Exception("Invalid address format.");
         }
 
-        int octA = Integer.parseInt(octs[0]);
-        int octB = Integer.parseInt(octs[1]);
-        int octC = Integer.parseInt(octs[2]);
-        int octD = Integer.parseInt(octs[3]);
+        long octA = Long.parseLong(octs[0]);
+        long octB = Long.parseLong(octs[1]);
+        long octC = Long.parseLong(octs[2]);
+        long octD = Long.parseLong(octs[3]);
 
         if( octA < 0 || 255 < octA ){
             throw new Exception("Invalid octet on 1st section.");
@@ -27,16 +57,16 @@ public class IP {
             throw new Exception("Invalid octet on 4th section.");
         }
 
-        return (long)((octA<<24) | (octB<<16) | (octC<<8) | octD);
+        return (octA<<24) | (octB<<16) | (octC<<8) | octD;
     }
 
-    public static String toString(long addr) {
+    public static String convertToString(long addr) {
         long octA = ((addr & 0xFF000000) >> 24) & 0xFF;
         long octB = ((addr & 0x00FF0000) >> 16) & 0xFF;
         long octC = ((addr & 0x0000FF00) >>  8) & 0xFF;
         long octD = ((addr & 0x000000FF)      ) & 0xFF;
 
         return octA + "." + octB + "." + octC + "." + octD;
-    }    
+    }
 
 }
