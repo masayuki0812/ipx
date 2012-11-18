@@ -1,4 +1,4 @@
-Extended IP implementation for Java
+Extended IP implementation in Java
 ====
 
 ## Build
