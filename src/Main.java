@@ -70,13 +70,13 @@ public class Main {
             }
 
             // Mapping
-            IPMap map = new IPMap("./ip_country_mapping");
-            ip = new IP("4.1.1.1");
-            IPRange hit = map.find(ip);
-            System.out.println("## " + ip + " => " + hit);
-            ip = new IP("192.255.40.1");
-            hit = map.find(ip);
-            System.out.println("## " + ip + " => " + hit);
+//             IPMap map = new IPMap("./ip_country_mapping");
+//             ip = new IP("4.1.1.1");
+//             IPRange hit = map.find(ip);
+//             System.out.println("## " + ip + " => " + hit);
+//             ip = new IP("192.255.40.1");
+//             hit = map.find(ip);
+//             System.out.println("## " + ip + " => " + hit);
         }
         catch (Exception e) {
             e.printStackTrace();
