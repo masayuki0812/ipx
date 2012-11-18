@@ -11,7 +11,7 @@ Currently, 0.1.0 is the latest.
 
 ## Download
 
-You can download `.jar` from [here](https://github.com/masayuki0812/ipx/downloads, 'https://github.com/masayuki0812/ipx/downloads').
+You can download `.jar` from [here](https://github.com/masayuki0812/ipx/downloads 'https://github.com/masayuki0812/ipx/downloads').
 
 ## Build
 
@@ -104,6 +104,6 @@ In this case, `ip_country_mapping.csv` is:
 23.18.0.0,23.29.191.255,US,UNITED STATES
 ...
 ```
-You can generate this csv by using [ip-country-mapping](https://github.com/masayuki0812/ip-country-mapping, 'https://github.com/masayuki0812/ip-country-mapping').
+You can generate this csv by using [ip-country-mapping](https://github.com/masayuki0812/ip-country-mapping 'https://github.com/masayuki0812/ip-country-mapping').
 
 Enjoy!
